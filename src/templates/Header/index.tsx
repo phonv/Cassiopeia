@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { MapIcon } from "../../components/atoms/MapIcon";
-import { Link } from "react-router-dom";
+import { StyledLink } from "../../App";
+import { Cart } from "../../components/mocules/CartIcon";
 
 const navItems = [
   {
@@ -17,11 +18,11 @@ const navItems = [
     path: "/",
   },
   {
-    name: "Discounts",
+    name: "Disconts",
     path: "/",
   },
   {
-    name: "About",
+    name: "About us",
     path: "/",
   },
 ];
@@ -34,17 +35,19 @@ export const Header = () => {
           <MapIcon />
           <div className="position">London</div>
         </div>
-        <div className="logo">CASSIOPEIA</div>
+        <StyledLink to="/">
+          <div className="logo">CASSIOPEIA</div>
+        </StyledLink>
         <div className="icons-center">
-          <SearchOutlined />
-          <ShoppingCartOutlined />
+          <SearchOutlined style={{ fontSize: 24 }} />
+          <Cart />
         </div>
       </div>
       <div className="navbar">
         {navItems.map((item, i) => (
-          <Link key={i} to={item.path}>
+          <StyledLink key={i} to={item.path}>
             {item.name}
-          </Link>
+          </StyledLink>
         ))}
       </div>
     </Container>
@@ -52,12 +55,12 @@ export const Header = () => {
 };
 
 const Container = styled.div`
-  padding: 1rem 8%;
+  padding: 0.8rem 10%;
   .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 1.35em;
     .position-info-center,
     .icons-center {
       display: flex;
@@ -68,7 +71,7 @@ const Container = styled.div`
       font-size: 0.7em;
     }
     .logo {
-      font-weight: bolder;
+      font-weight: 700;
     }
     .icons-center {
       gap: 20px;
@@ -77,8 +80,7 @@ const Container = styled.div`
   .navbar {
     display: flex;
     justify-content: center;
-    gap: 4rem;
-    font-weight: bold;
+    gap: 5rem;
     margin-top: 3rem;
   }
 `;

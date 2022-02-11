@@ -1,16 +1,6 @@
-import React, {
-  createContext,
-  useState,
-  useMemo,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import React, { createContext, useState, useMemo } from "react";
 import { CartItemProps } from "../../types";
-
-type CartItemContextProps = {
-  inCartItems: CartItemProps[];
-  setInCartItems: Dispatch<SetStateAction<CartItemProps[]>>;
-};
+import { CartItemContextProps } from "../../types";
 
 const CartItemContext = createContext<CartItemContextProps | undefined>(
   undefined

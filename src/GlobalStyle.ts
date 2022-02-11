@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   }
   a{
     text-decoration:none;
@@ -24,7 +24,34 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(0,0,0,0.3);
   }
   ::-webkit-scrollbar-thumb{
-    background:black;
-    border-radius:5px;
+    background: black;
+    border-radius: 5px;
+  }
+  .swiper{
+    overflow: clip visible;
+  }
+  .swiper-wrapper{
+    padding: 20px 0;
+  }
+  .swiper-button-next,
+  .swiper-button-prev{
+    top: -30px;
+    opacity: 0;
+    ::after{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .swiper-button-disabled{
+    opacity: 0 !important;
+  }
+  .swiper-button-next{
+    right:0 !important;
+  }
+  .swiper-button-prev{
+    left: calc(100% - 75px) !important;
+  }
+  .slider-right-btn + .swiper-button-next.swiper-button-disabled{
+    background-color: red;
   }
 `;
