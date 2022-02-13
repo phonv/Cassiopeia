@@ -4,7 +4,7 @@ import subBanner1 from "../../asserts/images/banner2.jpeg";
 import subBanner2 from "../../asserts/images/banner3.jpeg";
 import { ProductSlideShow } from "../../components/UI/organisms/ProductSlideShow";
 import { Banner } from "../../components/UI/mocules/Banner";
-import { PRODUCT_DETAIL_URL, POLICIES_URL } from "../../api";
+import { PRODUCT_DETAIL_URL } from "../../api";
 
 export const Home = () => {
   return (

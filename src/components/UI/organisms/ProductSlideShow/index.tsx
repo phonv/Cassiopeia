@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/bundle";
-import { ApiProductProps } from "../../../../types";
+import { ApiProductProps, CartItemProps } from "../../../../types";
 import { fetchData } from "../../../../api";
 import { ProductCard } from "../../mocules/ProductCard";
+import { CartItemContext } from "../../../../context/CartItemContext";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -26,6 +27,24 @@ export const ProductSlideShow = ({
   const [buttonState, setButtonState] = useState(0);
 
   console.log(buttonState);
+  const cartItemContext = useContext(CartItemContext);
+  const setCartItemContext = cartItemContext?.setInCartItems!;
+  const cartItems = cartItemContext?.inCartItems;
+
+  const handleAddItemToCart = (id: string) => {
+    const extractedItem = products.find((item) => item.id === id);
+    const existedItem = cartItems?.find((item) => item.id === id);
+
+    cartItems?.forEach((item: CartItemProps) => {
+      if (item.id === id) {
+        item = { ...item, amount: item.amount++ };
+      }
+    });
+
+    setCartItemContext((prev) =>
+      existedItem ? [...prev] : [...prev, { ...extractedItem, amount: 1 }]
+    );
+  };
 
   useEffect(() => {
     fetchData(api).then((data) => {
@@ -74,6 +93,7 @@ export const ProductSlideShow = ({
                   name={item.name}
                   price={item.price}
                   image={item.image}
+                  onAddItem={() => handleAddItemToCart(item.id)}
                 />
               </SwiperSlide>
             ))}
@@ -126,7 +146,6 @@ const Container = styled.div<{ buttonState: number, lsitSize: number }>`
     opacity: ${({ buttonState }) => buttonState === 0 && "0.3"};
   }
   .slider-right-btn {
-    opacity: ${({ buttonState }) => buttonState <= listSize - 4 && "0.3"};
   }
 `;
 const StyledLink = styled(Link)`

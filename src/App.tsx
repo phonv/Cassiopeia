@@ -4,23 +4,27 @@ import { GlobalStyle } from "./GlobalStyle";
 import { Link } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Checkout } from "./pages/Checkout";
+import { Product } from "./pages/Product";
 import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/templates/Header";
 import { Footer } from "./components/templates/Footer";
+import { CartItemProvider } from "./context/CartItemContext";
 
 function App() {
   return (
     <Container>
-      <Header />
-      <div className="layout">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<Checkout />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-      <Footer />
+      <CartItemProvider>
+        <Header />
+        <div className="layout">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
+      </CartItemProvider>
       <GlobalStyle />
     </Container>
   );

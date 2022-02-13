@@ -1,19 +1,17 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface CartItemProps {
-  id: string;
-  name: string;
-  price: string;
-  color: string;
-  image: string;
-  detail: string;
-  amount: string;
+  id?: string;
+  name?: string;
+  price?: number;
+  image?: string;
+  detail?: string;
+  amount: number;
 }
 export interface ApiProductProps {
   id: string;
   name: string;
-  price: string;
-  colors: string[];
+  price: number;
   image: string;
   detail: string;
 }
