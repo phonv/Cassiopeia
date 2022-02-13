@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Badge } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import "antd/lib/badge/style/css";
-import { CartItemContext } from "../../../context/CartItemContext";
+import { CartItemContext } from "../../../../context/CartItemContext";
 
-export const Cart = () => {
+export const CartIcon = () => {
   const CartItem = useContext(CartItemContext);
   const inCartProducts = CartItem?.inCartItems.length;
 

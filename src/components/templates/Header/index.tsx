@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { SearchOutlined } from "@ant-design/icons";
-import { MapIcon } from "../../components/atoms/MapIcon";
-import { StyledLink } from "../../App";
-import { Cart } from "../../components/mocules/CartIcon";
+import { StyledLink } from "../../../App";
+import { MapIcon } from "../../UI/atoms/MapIcon";
+import { CartIcon } from "../../UI/mocules/CartIcon";
 
 const navItems = [
   {
@@ -40,7 +40,7 @@ export const Header = () => {
         </StyledLink>
         <div className="icons-center">
           <SearchOutlined style={{ fontSize: 24 }} />
-          <Cart />
+          <CartIcon />
         </div>
       </div>
       <div className="navbar">

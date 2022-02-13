@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { FacebookIcon } from "../../components/atoms/FacebookIcon";
-import { InstagramIcon } from "../../components/atoms/InstagramIcon";
-import { WhatsappIcon } from "../../components/atoms/WhatsappIcon";
+import { InstagramIcon } from "../../UI/atoms/InstagramIcon";
+import { FacebookIcon } from "../../UI/atoms/FacebookIcon";
+import { WhatsappIcon } from "../../UI/atoms/WhatsappIcon";
 
 const footerQuickLinks = [
   {

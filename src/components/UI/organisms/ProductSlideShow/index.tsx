@@ -5,8 +5,8 @@ import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/bundle";
-import { ApiProductProps } from "../../../types";
-import { fetchData } from "../../../api";
+import { ApiProductProps } from "../../../../types";
+import { fetchData } from "../../../../api";
 import { ProductCard } from "../../mocules/ProductCard";
 
 SwiperCore.use([Autoplay, Navigation]);
@@ -23,6 +23,9 @@ export const ProductSlideShow = ({
   isRelevant,
 }: ProductSlideShowProps) => {
   const [products, setProducts] = useState<ApiProductProps[]>([]);
+  const [buttonState, setButtonState] = useState(0);
+
+  console.log(buttonState);
 
   useEffect(() => {
     fetchData(api).then((data) => {
@@ -31,18 +34,24 @@ export const ProductSlideShow = ({
   }, []);
 
   return (
-    <Container>
+    <Container buttonState={buttonState} lsitSize={products.length}>
       <header>
         {" "}
         <span className="title">{title}</span>
         <div className="navigators">
-          <div className="slider-left-btn">
+          <div
+            className="slider-left-btn"
+            onClick={() => setButtonState((prev) => prev--)}
+          >
             <img
               src="https://cassiopeia.store/svgs/line-left-arrow-black.svg"
               alt="left button"
             />
           </div>
-          <div className="slider-right-btn">
+          <div
+            className="slider-right-btn"
+            onClick={() => setButtonState((prev) => prev++)}
+          >
             <img
               src="https://cassiopeia.store/svgs/line-right-arrow-black.svg"
               alt="right button"
@@ -90,7 +99,7 @@ export const ProductSlideShow = ({
     </Container>
   );
 };
-const Container = styled.div`
+const Container = styled.div<{ buttonState: number, lsitSize: number }>`
   margin: 50px 0;
   header {
     display: flex;
@@ -112,6 +121,12 @@ const Container = styled.div`
     width: 30px;
     height: 30px;
     cursor: pointer;
+  }
+  .slider-left-btn {
+    opacity: ${({ buttonState }) => buttonState === 0 && "0.3"};
+  }
+  .slider-right-btn {
+    opacity: ${({ buttonState }) => buttonState <= listSize - 4 && "0.3"};
   }
 `;
 const StyledLink = styled(Link)`

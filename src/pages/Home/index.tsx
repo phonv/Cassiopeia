@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Banner } from "../../components/mocules/Banner";
 import mainBanner from "../../asserts/images/banner1.jpg";
 import subBanner1 from "../../asserts/images/banner2.jpeg";
 import subBanner2 from "../../asserts/images/banner3.jpeg";
-import { ProductSlideShow } from "../../components/organisms/ProductSlideShow";
+import { ProductSlideShow } from "../../components/UI/organisms/ProductSlideShow";
+import { Banner } from "../../components/UI/mocules/Banner";
 import { PRODUCT_DETAIL_URL, POLICIES_URL } from "../../api";
 
 export const Home = () => {

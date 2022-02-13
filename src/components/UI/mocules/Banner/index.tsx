@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ArrowRightOutlined } from "@ant-design/icons";
 
 type BannerProps = {
   title: string;
