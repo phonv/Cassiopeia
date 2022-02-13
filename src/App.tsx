@@ -8,20 +8,23 @@ import { Checkout } from "./pages/Checkout";
 import { NotFound } from "./pages/NotFound";
 import { Header } from "./templates/Header";
 import { Footer } from "./templates/Footer";
+import { CartItemProvider } from "./context/CartItemContext";
 
 function App() {
   return (
     <Container>
-      <Header />
-      <div className="layout">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/checkout/:id" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-      <Footer />
+      <CartItemProvider>
+        <Header />
+        <div className="layout">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/checkout/:id" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
+      </CartItemProvider>
       <GlobalStyle />
     </Container>
   );

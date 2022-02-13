@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Card } from "antd";
 import "antd/lib/card/style/css";
 import styled from "styled-components";
@@ -6,18 +5,27 @@ import styled from "styled-components";
 type SliderItemProps = {
   id: string;
   name: string;
-  price: string;
+  price: number;
   image: string;
+  onAddItem: () => void;
 };
 const { Meta } = Card;
 
-export const ProductCard = ({ id, name, image, price }: SliderItemProps) => {
+export const ProductCard = ({
+  id,
+  name,
+  image,
+  price,
+  onAddItem,
+}: SliderItemProps) => {
   return (
-    <Link to={"/product/" + id}>
-      <BorderlessCard hoverable cover={<img alt="product" src={image} />}>
-        <Meta title={name} description={"$ " + price} />
-      </BorderlessCard>
-    </Link>
+    <BorderlessCard
+      hoverable
+      cover={<img alt="product" src={image} />}
+      onClick={onAddItem}
+    >
+      <Meta title={name} description={"$ " + price} />
+    </BorderlessCard>
   );
 };
 

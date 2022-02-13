@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { SearchOutlined } from "@ant-design/icons";
 import { MapIcon } from "../../components/atoms/MapIcon";
 import { StyledLink } from "../../App";
-import { Cart } from "../../components/mocules/CartIcon";
+import { Cart } from "../../components/mocules/Cart";
 
 const navItems = [
   {
