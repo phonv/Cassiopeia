@@ -1,6 +1,5 @@
 import React, { createContext, useState, useMemo, useEffect } from "react";
-import { CartItemProps } from "../../types";
-import { CartItemContextProps } from "../../types";
+import { UserOrderProps, CartItemContextProps } from "../../types";
 
 const CartItemContext = createContext<CartItemContextProps | undefined>(
   undefined
@@ -9,9 +8,11 @@ const CartItemContext = createContext<CartItemContextProps | undefined>(
 const CartItemProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [inCartItems, setInCartItems] = useState<CartItemProps[]>(
+  const [inCartItems, setInCartItems] = useState<UserOrderProps[]>(
     JSON.parse(localStorage.getItem("products")!) || []
   );
+
+  console.log("re-render");
 
   const cartItemContext: CartItemContextProps = useMemo(
     () => ({
@@ -24,7 +25,7 @@ const CartItemProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const localProducts = window.localStorage.getItem("products");
     localProducts && setInCartItems(JSON.parse(localProducts));
-  }, [inCartItems]);
+  }, []);
 
   return (
     <CartItemContext.Provider value={cartItemContext}>

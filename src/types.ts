@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface CartItemProps {
+export interface UserOrderProps {
   id?: string;
   name?: string;
   price?: number;
   image?: string;
   detail?: string;
-  category?: string,
-  occasion?: string,
-  isPromotion?: boolean,
+  category?: string;
+  occasion?: string;
+  isPromotion?: boolean;
   amount: number;
 }
 export interface ApiProductProps {
@@ -17,14 +17,14 @@ export interface ApiProductProps {
   price: number;
   image: string;
   detail: string;
-  isPromotion: boolean,
-  category?: string,
-  occasion?: string,
+  isPromotion: boolean;
+  category?: string;
+  occasion?: string;
 }
 
 export interface CartItemContextProps {
-  inCartItems: CartItemProps[];
-  setInCartItems?: Dispatch<SetStateAction<CartItemProps[]>>;
+  inCartItems: UserOrderProps[];
+  setInCartItems?: Dispatch<SetStateAction<UserOrderProps[]>>;
 }
 export type PolicyProps = {
   id: string;

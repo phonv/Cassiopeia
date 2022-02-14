@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Modal } from "antd";
-import { DeleteFilled } from "@ant-design/icons";
+import { DeleteOutlined, SearchOutlined } from "@ant-design/icons";
 import "antd/lib/modal/style/css";
 import { useContext } from "react";
 import { CartItemContext } from "../../../../context/CartItemContext";
 import { Counter } from "../../mocules/Counter";
-import { Link } from "react-router-dom";
+import { StyledLink } from "../../../../App";
 
 type CartStatus = {
   isOpen: boolean;
@@ -61,6 +61,13 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
                 <Product key={item.id}>
                   <div className="image-wrapper">
                     <img src={item.image} alt="avatar" />
+                    <div className="detail-btn-wrapper">
+                      <StyledLink to={"/product/" + item.id}>
+                        <div className="detail-button">
+                          <SearchOutlined />
+                        </div>
+                      </StyledLink>
+                    </div>
                   </div>
                   <div className="control-center">
                     <div className="top-center">
@@ -73,13 +80,13 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
                         className="delete-btn"
                         onClick={() => handleRemoveItem(item.id)}
                       >
-                        {<DeleteFilled />}
+                        {<DeleteOutlined />}
                       </div>
                     </div>
                   </div>
                 </Product>
               ))}
-            </div>{" "}
+            </div>
             <div className="remove-all-btn" onClick={handleRemoveAll}>
               Remove all
             </div>
@@ -97,8 +104,7 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
                 <div className="value">${handleCalculateOrderTotal()}</div>
               </div>
             </div>
-            <Link to="/checkout">
-              {" "}
+            <StyledLink to="/checkout">
               <div className="checkout-btn-wrapper">
                 <div className="checkout-btn">
                   <span>Checkout</span>
@@ -111,7 +117,7 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </StyledLink>
           </AddedCart>
         )}
       </Modal>
@@ -219,6 +225,40 @@ const Product = styled.div`
   margin-bottom: 20px;
   .image-wrapper {
     width: 100px;
+    position: relative;
+    .detail-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: opacity 0.2s ease;
+      opacity: 0;
+      .detail-button {
+        background: white;
+        font-size: 17px;
+        width: 35px;
+        height: 35px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s ease;
+        :hover {
+          background: rgba(255, 255, 255, 0.8);
+          transition: background-color 0.2s ease;
+        }
+      }
+    }
+    :hover {
+      .detail-btn-wrapper {
+        transition: opacity 0.2s ease;
+        opacity: 1;
+      }
+    }
   }
   .control-center {
     flex: 1;

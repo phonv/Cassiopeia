@@ -60,4 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   .ant-modal-title{
     font-size: 20px;
   }
+  .anticon-shopping-cart{
+    font-size:24px;
+  }
 `;

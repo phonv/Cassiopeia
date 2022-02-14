@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/bundle";
-import { ApiProductProps, CartItemProps } from "../../../../types";
+import { ApiProductProps, UserOrderProps } from "../../../../types";
 import { fetchData } from "../../../../api";
 import { ProductCard } from "../../mocules/ProductCard";
 import { CartItemContext } from "../../../../context/CartItemContext";
@@ -27,14 +27,14 @@ export const ProductSlideShow = ({
   const [buttonState, setButtonState] = useState(0);
 
   const cartItemContext = useContext(CartItemContext);
-  const setCartItemContext = cartItemContext?.setInCartItems!;
   const cartItems = cartItemContext?.inCartItems;
+  const setCartItemContext = cartItemContext?.setInCartItems!;
 
   const handleAddItemToCart = (id: string) => {
     const extractedItem = products.find((item) => item.id === id);
     const existedItem = cartItems?.find((item) => item.id === id);
 
-    cartItems?.forEach((item: CartItemProps) => {
+    cartItems?.forEach((item: UserOrderProps) => {
       if (item.id === id) {
         item = { ...item, amount: item.amount++ };
       }
