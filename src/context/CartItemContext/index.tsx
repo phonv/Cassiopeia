@@ -12,8 +12,6 @@ const CartItemProvider: React.FC<{ children: React.ReactNode }> = ({
     JSON.parse(localStorage.getItem("products")!) || []
   );
 
-  console.log("re-render");
-
   const cartItemContext: CartItemContextProps = useMemo(
     () => ({
       inCartItems,

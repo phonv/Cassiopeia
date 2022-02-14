@@ -30,7 +30,7 @@ export const Counter = ({ id, quantity }: CounterProps) => {
   };
 
   return (
-    <Container>
+    <CounterContainer>
       <div className="btn" onClick={handleDecrease}>
         -
       </div>
@@ -38,10 +38,10 @@ export const Counter = ({ id, quantity }: CounterProps) => {
       <div className="btn" onClick={handleIncrease}>
         +
       </div>
-    </Container>
+    </CounterContainer>
   );
 };
-const Container = styled.div`
+export const CounterContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
