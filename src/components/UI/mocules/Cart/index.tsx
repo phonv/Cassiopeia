@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import { Badge } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, CloseOutlined } from "@ant-design/icons";
 import "antd/lib/badge/style/css";
-import { CartItemContext } from "../../../context/CartItemContext";
+import { CartItemContext } from "../../../../context/CartItemContext";
 import { CartModal } from "../../organisms/CartModal";
 
 export const Cart = () => {
@@ -17,12 +17,16 @@ export const Cart = () => {
 
   return (
     <Container>
-      <Badge count={inCartProducts} size="small">
-        <ShoppingCartOutlined
-          style={{ fontSize: 24 }}
-          onClick={handleOpenModal}
-        />
-      </Badge>
+      {isCartOpen ? (
+        <CloseOutlined style={{ fontSize: 24 }} />
+      ) : (
+        <Badge count={inCartProducts} size="small">
+          <ShoppingCartOutlined
+            style={{ fontSize: 24 }}
+            onClick={handleOpenModal}
+          />
+        </Badge>
+      )}
       <CartModal
         isEmpty={inCartProducts === 0}
         isOpen={isCartOpen}

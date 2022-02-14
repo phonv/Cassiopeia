@@ -5,6 +5,7 @@ import "antd/lib/modal/style/css";
 import { useContext } from "react";
 import { CartItemContext } from "../../../../context/CartItemContext";
 import { Counter } from "../../mocules/Counter";
+import { Link } from "react-router-dom";
 
 type CartStatus = {
   isOpen: boolean;
@@ -20,17 +21,26 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
   const handleCalculateOrderTotal = () =>
     cartItems?.reduce((prev, cur) => prev + cur.amount * cur.price!, 0);
 
-  const handleRemoveAll = () => setCartItem([]);
+  const handleRemoveAll = () => {
+    setCartItem([]);
+    localStorage.setItem("products", JSON.stringify([]));
+  };
+
+  const handleRemoveItem = (id?: string) => {
+    const newCartItems = cartItems?.filter((item) => item.id !== id)!;
+    setCartItem(newCartItems);
+    localStorage.setItem("products", JSON.stringify(newCartItems));
+  };
 
   return (
-    <Container>
+    <>
       <Modal
         title="Your cart"
+        closable={false}
         footer={null}
-        style={{ top: 50, left: 373 }}
+        style={{ top: 50, left: 373, minWidth: 554 }}
         bodyStyle={{
-          width: "554px",
-          padding: "3rem 60px",
+          padding: "3rem 0",
           textAlign: "center",
         }}
         visible={isOpen}
@@ -45,24 +55,29 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
             </div>
           </div>
         ) : (
-          <div className="added-cart-modal">
+          <AddedCart>
             <div className="products">
               {cartItems?.map((item) => (
-                <div key={item.id} className="product-info">
+                <Product key={item.id}>
                   <div className="image-wrapper">
                     <img src={item.image} alt="avatar" />
                   </div>
                   <div className="control-center">
                     <div className="top-center">
                       <div className="product-name">{item.name}</div>
-                      <div className="price">{item.price}</div>
+                      <div className="price">${item.price}</div>
                     </div>
                     <div className="bottom-center">
                       <Counter id={item.id} quantity={item.amount} />
-                      <div className="delete-btn">{<DeleteFilled />}</div>
+                      <div
+                        className="delete-btn"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
+                        {<DeleteFilled />}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Product>
               ))}
             </div>{" "}
             <div className="remove-all-btn" onClick={handleRemoveAll}>
@@ -79,26 +94,148 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
               </div>
               <div className="payment-info">
                 <div className="key">Order total</div>
-                <div className="value">{handleCalculateOrderTotal()}</div>
+                <div className="value">${handleCalculateOrderTotal()}</div>
               </div>
             </div>
-            <div className="checkout-btn-wrapper">
-              <div className="checkout-btn">Checkout</div>
-            </div>
-          </div>
+            <Link to="/checkout">
+              {" "}
+              <div className="checkout-btn-wrapper">
+                <div className="checkout-btn">
+                  <span>Checkout</span>
+                  <div className="arrow-wrapper">
+                    <img
+                      className="arrow"
+                      src="https://cassiopeia.store/svgs/line-right-arrow.svg"
+                      alt="arrow"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </AddedCart>
         )}
       </Modal>
-    </Container>
+    </>
   );
 };
-const Container = styled.div`
+const AddedCart = styled.div`
   text-align: initial;
-  .product-info {
-    display: flex;
+  .remove-all-btn {
+    color: #595cff;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 30px 0;
+    cursor: pointer;
+  }
+  .promocode-center {
+    gap: 15px;
     align-items: center;
-    .image-wrapper {
-      width: 100px;
-      height: 100px;
+    height: 42px;
+    input {
+      flex: 1;
+      outline: none;
+      height: 100%;
+      border: 1px solid #ddd;
+      background-color: rgba(200, 200, 200, 0.2);
+      padding: 10px;
+      font-size: 0.8rem;
+      color: #000;
+    }
+    .apply-btn {
+      padding: 10px;
+      border: 1px solid #595cff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 5px;
+      width: 150px;
+      text-align: center;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: #595cff;
+        color: white;
+        transition: background-color 0.2s ease;
+      }
+    }
+  }
+  .payment-center {
+    margin: 3rem 0 1rem;
+    font-size: 16px;
+    .payment-info {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ddd;
+      padding: 15px 0;
+      .key {
+        font-weight: 400;
+      }
+    }
+  }
+  .checkout-btn-wrapper {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .checkout-btn {
+      background: black;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      border-radius: 7px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      .arrow-wrapper {
+        width: 25px;
+      }
+      &:hover {
+        background: #444;
+        transition: background-color 0.2s ease;
+      }
+    }
+  }
+  .top-center,
+  .bottom-center,
+  .promocode-center {
+    display: flex;
+  }
+  .top-center,
+  .bottom-center {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .value,
+  .price {
+    font-weight: 500;
+  }
+`;
+const Product = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  .image-wrapper {
+    width: 100px;
+  }
+  .control-center {
+    flex: 1;
+    .top-center {
+      margin-bottom: 10px;
+      font-size: 17px;
+      font-weight: 450;
+      white-space: normal;
+      .product-name {
+        max-width: 225px;
+      }
+    }
+    .bottom-center {
+      .delete-btn {
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
     }
   }
 `;

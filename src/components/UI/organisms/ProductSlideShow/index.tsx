@@ -26,7 +26,6 @@ export const ProductSlideShow = ({
   const [products, setProducts] = useState<ApiProductProps[]>([]);
   const [buttonState, setButtonState] = useState(0);
 
-  console.log(buttonState);
   const cartItemContext = useContext(CartItemContext);
   const setCartItemContext = cartItemContext?.setInCartItems!;
   const cartItems = cartItemContext?.inCartItems;
@@ -40,9 +39,16 @@ export const ProductSlideShow = ({
         item = { ...item, amount: item.amount++ };
       }
     });
-
     setCartItemContext((prev) =>
       existedItem ? [...prev] : [...prev, { ...extractedItem, amount: 1 }]
+    );
+    localStorage.setItem(
+      "products",
+      JSON.stringify(
+        existedItem
+          ? [...cartItems!]
+          : [...cartItems!, { ...extractedItem, amount: 1 }]
+      )
     );
   };
 
@@ -53,7 +59,7 @@ export const ProductSlideShow = ({
   }, []);
 
   return (
-    <Container buttonState={buttonState} lsitSize={products.length}>
+    <Container buttonState={buttonState} listSize={products.length}>
       <header>
         {" "}
         <span className="title">{title}</span>
@@ -119,7 +125,7 @@ export const ProductSlideShow = ({
     </Container>
   );
 };
-const Container = styled.div<{ buttonState: number, lsitSize: number }>`
+const Container = styled.div<{ buttonState: number; listSize: number }>`
   margin: 50px 0;
   header {
     display: flex;
@@ -141,11 +147,6 @@ const Container = styled.div<{ buttonState: number, lsitSize: number }>`
     width: 30px;
     height: 30px;
     cursor: pointer;
-  }
-  .slider-left-btn {
-    opacity: ${({ buttonState }) => buttonState === 0 && "0.3"};
-  }
-  .slider-right-btn {
   }
 `;
 const StyledLink = styled(Link)`

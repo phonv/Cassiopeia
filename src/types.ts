@@ -6,6 +6,9 @@ export interface CartItemProps {
   price?: number;
   image?: string;
   detail?: string;
+  category?: string,
+  occasion?: string,
+  isPromotion?: boolean,
   amount: number;
 }
 export interface ApiProductProps {
@@ -14,6 +17,9 @@ export interface ApiProductProps {
   price: number;
   image: string;
   detail: string;
+  isPromotion: boolean,
+  category?: string,
+  occasion?: string,
 }
 
 export interface CartItemContextProps {

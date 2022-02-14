@@ -51,7 +51,13 @@ export const GlobalStyle = createGlobalStyle`
   .swiper-button-prev{
     left: calc(100% - 75px) !important;
   }
-  .slider-right-btn + .swiper-button-next.swiper-button-disabled{
-    background-color: red;
+  .ant-modal-content{
+    padding:0 60px;
+  }
+  .ant-modal-header{
+    padding:16px 0;
+  }
+  .ant-modal-title{
+    font-size: 20px;
   }
 `;

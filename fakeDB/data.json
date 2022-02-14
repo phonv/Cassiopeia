@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": 11,
+      "name": "Peace Lily",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/616e843705496063028168_gkrh2y.webp",
+      "price": "88",
+      "types": "Spathiphyllum",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants"
+    },
+    {
+      "id": 12,
+      "name": "Floating Hearts: Pink Anthurium",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/616e81d111478243436969_i0toc5.webp",
+      "price": "77",
+      "types": "Anthurium",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants"
+    },
+    {
+      "id": 13,
+      "name": "Little Wish: Mini Christmas Tree",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618e42725ea15102872257_flumho.webp",
+      "price": "54",
+      "types": "Pine tree",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants",
+      "occasion": "Christmas",
+      "isPromotion": true
+    },
+    {
+      "id": 1,
+      "name": "White Christmas: White Orchid",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618e40d5bcba8685990865_fosmxc.webp",
+      "price": "68",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants",
+      "occasion": "Christmas"
+    },
+    {
+      "id": 2,
+      "name": "Chocolate with Luxury Basket",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/6184da374fbd0630625642_vbe2ln.webp",
+      "price": "99",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "gifts",
+      "occasion": "Valentine"
+    },
+    {
+      "id": 3,
+      "name": "Sweet Delicay",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618d1b7b8d835793450004_ao3v1h.webp",
+      "price": "119",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "gifts",
+      "occasion": "Valentine"
+    },
+    {
+      "id": 4,
+      "name": "White Lilies and Gerberas",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/5cdd463408a93217111334_xbpxkx.webp",
+      "price": "54",
+      "types": "Lilies, Gerberas",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Brithday"
+    },
+    {
+      "id": 5,
+      "name": "Red Roses and White Lilies",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/5d84dc1a631b2292689077_nihv8m.webp",
+      "price": "99",
+      "types": "Roses, Lilies",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Christmas"
+    },
+    {
+      "id": 6,
+      "name": "Chrysanthemums and Roses",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/5d19dc8cc0983744838000_xc256j.webp",
+      "price": "44",
+      "types": "Chrysanthemums, Roses",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Brithday"
+    },
+    {
+      "id": 7,
+      "name": "Roses and Lilies",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/5d84d46e1fe63737087781_eztymk.webp",
+      "price": "54",
+      "types": "Lilies, Gerberas",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "isPromotion": true
+    },
+    {
+      "id": 8,
+      "name": "Lilies and Roses",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/5d84d53800517236157520_awcivk.webp",
+      "price": "41",
+      "types": "Lilies, Roses",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Brithday",
+      "isPromotion": true
+    },
+    {
+      "id": 9,
+      "name": "Love of Chocolate",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/6184e2a2c71d4438542627_moioxi.webp",
+      "price": "79",
+      "types": "Lilies, Gerberas",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "gifts",
+      "occasion": "Valentine",
+      "isPromotion": true
+    },
+    {
+      "id": 10,
+      "name": "Premium Selection",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618d27dfa328c746557086_bl337f.webp",
+      "price": "68",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "gifts",
+      "occasion": "New Year"
+    },
+
+    {
+      "id": 14,
+      "name": "Strawberry Mousse: Roses and Gerberas",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/61827a9ebed9c874381634_vankxh.webp  ",
+      "price": "69",
+      "types": "Roses, Gerberas",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Wedding",
+      "isPromotion": true,
+      "originalPrice": "78"
+    },
+    {
+      "id": 15,
+      "name": "Jolly Holly: Eryngium and Alstroemerias",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618e4590a0741095275917_t0fsvi.webp",
+      "price": "59",
+      "types": "Alstroemerias",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Christmas",
+      "isPromotion": true
+    },
+    {
+      "id": 16,
+      "name": "Gentle Frost: Lilies and Lisianthus",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/618e41e776eab328620835_yssucz.webp",
+      "price": "39",
+      "types": "Lilies, Lisianthus",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "flowers",
+      "occasion": "Brithday",
+      "isPromotion": true
+    },
+    {
+      "id": 17,
+      "name": "Yellow Orchis",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/616e8246df56f283508971_uzhy3p.webp",
+      "price": "49",
+      "types": "Orchis",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants"
+    },
+    {
+      "id": 18,
+      "name": "White dendrobium",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/6169422546a23462867360_cdarsg.webp",
+      "price": "89",
+      "types": "Dendrobium",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants"
+    },
+    {
+      "id": 19,
+      "name": "Calathea Zebra Plant",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/61694097bfc2b371726052_njjyar.webp",
+      "price": "17.40",
+      "types": "Calathea zebrina",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "plants",
+      "isPromotion": true
+    },
+    {
+      "id": 20,
+      "name": "Taste of the Sea: Selection of Wines and Tinned Delights",
+      "image": "https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/613efaa664fdd557877209_hvadrm.webp",
+      "price": "90",
+      "detail": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "category": "gifts",
+      "occasion": "New year",
+      "isPromotion": true
+    }
+  ]
+}

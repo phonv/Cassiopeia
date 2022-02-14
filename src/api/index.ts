@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const URL_BASE = process.env.REACT_APP_API_BASE_URL;
-const PRODUCT_DETAIL_URL = URL_BASE + "product-detail/";
+const URL_BASE = "http://localhost:4000/";
+const PRODUCT_DETAIL_URL = URL_BASE + "products/";
 const POLICIES_URL = URL_BASE + "policies/";
 
 const fetchData = async (url: string) => {

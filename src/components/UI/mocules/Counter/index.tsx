@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { CartItemContext } from "../../../context/CartItemContext";
+import { CartItemContext } from "../../../../context/CartItemContext";
 
 type CounterProps = {
   id?: string;
@@ -23,7 +23,7 @@ export const Counter = ({ id, quantity }: CounterProps) => {
     if (quantity <= 1) return;
 
     const updater = cartItems?.map((item) => {
-      if (item.id === id) return { ...item, amount: item.amount-- };
+      if (item.id === id) return { ...item, amount: item.amount - 1 };
       return item;
     });
     setItemQuantity(updater);
@@ -44,20 +44,20 @@ export const Counter = ({ id, quantity }: CounterProps) => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   font-weight: 500;
   .amount {
     font-size: 1.1rem;
   }
   .btn {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
-    background: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #eee;
+    text-align: center;
+    line-height: 22px;
     font-size: 1.4rem;
+    user-select: none;
   }
 `;

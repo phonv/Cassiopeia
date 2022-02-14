@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from "react";
+import React, { createContext, useState, useMemo, useEffect } from "react";
 import { CartItemProps } from "../../types";
 import { CartItemContextProps } from "../../types";
 
@@ -9,7 +9,9 @@ const CartItemContext = createContext<CartItemContextProps | undefined>(
 const CartItemProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [inCartItems, setInCartItems] = useState<CartItemProps[]>([]);
+  const [inCartItems, setInCartItems] = useState<CartItemProps[]>(
+    JSON.parse(localStorage.getItem("products")!) || []
+  );
 
   const cartItemContext: CartItemContextProps = useMemo(
     () => ({
@@ -18,6 +20,11 @@ const CartItemProvider: React.FC<{ children: React.ReactNode }> = ({
     }),
     [inCartItems]
   );
+
+  useEffect(() => {
+    const localProducts = window.localStorage.getItem("products");
+    localProducts && setInCartItems(JSON.parse(localProducts));
+  }, [inCartItems]);
 
   return (
     <CartItemContext.Provider value={cartItemContext}>
