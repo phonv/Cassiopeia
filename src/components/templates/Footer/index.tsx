@@ -76,7 +76,7 @@ export const Footer = () => {
 };
 
 const Container = styled.div`
-  padding: 4rem 10% 0;
+  padding: 4rem 12% 0;
   background: #000;
   color: white;
   .quick-links {

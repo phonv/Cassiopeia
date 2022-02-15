@@ -33,7 +33,7 @@ function App() {
 const Container = styled.div`
   .layout {
     min-height: 100vh;
-    padding: 0 10%;
+    padding: 0 12%;
   }
 `;
 export const StyledLink = styled(Link)`

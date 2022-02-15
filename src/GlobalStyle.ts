@@ -63,4 +63,12 @@ export const GlobalStyle = createGlobalStyle`
   .anticon-shopping-cart{
     font-size:24px;
   }
+  .ant-collapse-content-box{
+    background:#fff;
+  }
+  .ant-collapse-header{
+    background:#fff;
+    font-weight:500;
+    font-size:1rem;
+  }
 `;

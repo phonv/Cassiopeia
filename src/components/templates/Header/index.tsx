@@ -55,7 +55,7 @@ export const Header = () => {
 };
 
 const Container = styled.div`
-  padding: 0.8rem 10%;
+  padding: 0.8rem 12%;
   .main-header {
     display: flex;
     justify-content: space-between;
@@ -82,5 +82,7 @@ const Container = styled.div`
     justify-content: center;
     gap: 5rem;
     margin-top: 3rem;
+    font-size: 1.1rem;
+    font-weight: 400;
   }
 `;
