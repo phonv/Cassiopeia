@@ -10,6 +10,7 @@ export interface UserInfoProps {
   shipAddress?: string;
   // receiptDate?: Date;
   paymentMethod?: string;
+  // choosenProducts: UserOrderProps[];
 }
 
 export interface UserOrderProps {
