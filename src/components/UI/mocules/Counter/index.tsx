@@ -18,6 +18,7 @@ export const Counter = ({ id, quantity }: CounterProps) => {
       return item;
     });
     setItemQuantity(updater);
+    localStorage.setItem("products", JSON.stringify(updater));
   };
   const handleDecrease = () => {
     if (quantity <= 1) return;
@@ -27,6 +28,7 @@ export const Counter = ({ id, quantity }: CounterProps) => {
       return item;
     });
     setItemQuantity(updater);
+    localStorage.setItem("products", JSON.stringify(updater));
   };
 
   return (

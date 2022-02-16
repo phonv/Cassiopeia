@@ -9,20 +9,23 @@ import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/templates/Header";
 import { Footer } from "./components/templates/Footer";
 import { CartItemProvider } from "./context/CartItemContext";
+import { UserInfoProvider } from "./context/UserInfoContext";
 
 function App() {
   return (
     <Container>
       <CartItemProvider>
         <Header />
-        <div className="layout">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+        <UserInfoProvider>
+          <div className="layout">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </UserInfoProvider>
         <Footer />
       </CartItemProvider>
       <GlobalStyle />

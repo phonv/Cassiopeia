@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Modal } from "antd";
-import { DeleteOutlined, SearchOutlined } from "@ant-design/icons";
 import "antd/lib/modal/style/css";
 import { useContext } from "react";
 import { CartItemContext } from "../../../../context/CartItemContext";
-import { Counter } from "../../mocules/Counter";
 import { StyledLink } from "../../../../App";
+import { CartItem } from "../../mocules/CartItem";
 
 type CartStatus = {
   isOpen: boolean;
@@ -58,33 +57,15 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
           <AddedCart>
             <div className="products">
               {cartItems?.map((item) => (
-                <Product key={item.id}>
-                  <div className="image-wrapper">
-                    <img src={item.image} alt="avatar" />
-                    <div className="detail-btn-wrapper">
-                      <StyledLink to={"/product/" + item.id}>
-                        <div className="detail-button">
-                          <SearchOutlined />
-                        </div>
-                      </StyledLink>
-                    </div>
-                  </div>
-                  <div className="control-center">
-                    <div className="top-center">
-                      <div className="product-name">{item.name}</div>
-                      <div className="price">${item.price}</div>
-                    </div>
-                    <div className="bottom-center">
-                      <Counter id={item.id} quantity={item.amount} />
-                      <div
-                        className="delete-btn"
-                        onClick={() => handleRemoveItem(item.id)}
-                      >
-                        {<DeleteOutlined />}
-                      </div>
-                    </div>
-                  </div>
-                </Product>
+                <CartItem
+                  key={item.id}
+                  id={item.id!}
+                  amount={item.amount}
+                  image={item.image!}
+                  price={item.price!}
+                  name={item.name!}
+                  onRemove={() => handleRemoveItem(item.id)}
+                />
               ))}
             </div>
             <div className="remove-all-btn" onClick={handleRemoveAll}>
@@ -124,7 +105,7 @@ export const CartModal = ({ isOpen, isEmpty, onClose }: CartStatus) => {
     </>
   );
 };
-const AddedCart = styled.div`
+export const AddedCart = styled.div`
   text-align: initial;
   .remove-all-btn {
     color: #595cff;
@@ -170,7 +151,7 @@ const AddedCart = styled.div`
     .payment-info {
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #eee;
       padding: 15px 0;
       .key {
         font-weight: 400;
@@ -204,78 +185,10 @@ const AddedCart = styled.div`
       }
     }
   }
-  .top-center,
-  .bottom-center,
   .promocode-center {
     display: flex;
   }
-  .top-center,
-  .bottom-center {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .value,
-  .price {
+  .value {
     font-weight: 500;
-  }
-`;
-const Product = styled.div`
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  .image-wrapper {
-    width: 100px;
-    position: relative;
-    .detail-btn-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transition: opacity 0.2s ease;
-      opacity: 0;
-      .detail-button {
-        background: white;
-        font-size: 17px;
-        width: 35px;
-        height: 35px;
-        border-radius: 3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.2s ease;
-        :hover {
-          background: rgba(255, 255, 255, 0.8);
-          transition: background-color 0.2s ease;
-        }
-      }
-    }
-    :hover {
-      .detail-btn-wrapper {
-        transition: opacity 0.2s ease;
-        opacity: 1;
-      }
-    }
-  }
-  .control-center {
-    flex: 1;
-    .top-center {
-      margin-bottom: 10px;
-      font-size: 17px;
-      font-weight: 450;
-      white-space: normal;
-      .product-name {
-        max-width: 225px;
-      }
-    }
-    .bottom-center {
-      .delete-btn {
-        cursor: pointer;
-        font-size: 1.2rem;
-      }
-    }
   }
 `;

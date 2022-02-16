@@ -27,6 +27,21 @@ export const GlobalStyle = createGlobalStyle`
     background: black;
     border-radius: 5px;
   }
+  .checkout-form-title {
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+  .checkout-form-input {
+    border: none;
+    outline: none;
+    background-color: rgba(200, 200, 200, 0.2);
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 5px;
+    font-size:0.8rem;
+    font-weight:400;
+  }
   .swiper{
     overflow: clip visible;
   }
@@ -70,5 +85,16 @@ export const GlobalStyle = createGlobalStyle`
     background:#fff;
     font-weight:500;
     font-size:1rem;
+  }
+  .ant-select{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 135px;
+    height: 40px;
+    background-color: rgba(200,200,200,0.2);
+    font-size:0.8rem;
+    font-weight:500;
+    border-radius: 5px;
   }
 `;
