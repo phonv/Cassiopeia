@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { CheckoutSectionProps } from "../../../../types";
 import { Navigator, OrderProgress } from "../../../templates/CheckoutCenter";
 import { LeftArrow } from "../../atoms/LeftArrow";
 import { RightArrow } from "../../atoms/RightArrow";
+import { UserInfoContext } from "../../../../context/UserInfoContext";
+import { RadioContainer } from "../RadioContainer";
+import { OnlinePaymentNote } from "../../mocules/OnlinePaymentNote";
 
 //If we need to send user information,
 //attach a function to submit-button and send "userInfo" state
@@ -10,6 +14,17 @@ import { RightArrow } from "../../atoms/RightArrow";
 export const CheckoutPayment = ({
   setCheckoutProgress,
 }: CheckoutSectionProps) => {
+  const userContext = useContext(UserInfoContext);
+  if (!userContext) return <></>;
+  const { userInfo, setUserInfo } = userContext;
+
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo((prev) => ({
+      ...prev,
+      paymentMethod: e.target.value,
+    }));
+  };
+
   return (
     <>
       <OrderProgress>
@@ -29,10 +44,20 @@ export const CheckoutPayment = ({
         </div>
       </OrderProgress>
 
-      <UserPaymentForm></UserPaymentForm>
+      <UserPaymentForm>
+        <RadioContainer
+          title="Payment method"
+          firstHeading="Payment on Delivery"
+          secondHeading="Online Payment"
+          firstValue="offline"
+          secondValue="online"
+          userField={userInfo.paymentMethod!}
+          updateInfoCallback={handleRadioChange}
+        />
+        {userInfo.paymentMethod === "online" && <OnlinePaymentNote />}
+      </UserPaymentForm>
 
       <Navigator btnColor="#000">
-        {" "}
         <div
           className="backstep"
           onClick={() => setCheckoutProgress("shipping")}

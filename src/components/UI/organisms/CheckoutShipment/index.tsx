@@ -16,8 +16,6 @@ export const CheckoutShipment = ({
   if (!userContext) return <></>;
   const { userInfo, setUserInfo } = userContext;
 
-  console.log(userInfo);
-
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInfo((prev) => ({
       ...prev,
@@ -50,6 +48,8 @@ export const CheckoutShipment = ({
             title="Delivery method"
             firstHeading="Pick up"
             secondHeading="Courier"
+            firstValue="pickup"
+            secondValue="courier"
             firstLabel=" Today, pick up is available in 2 stores"
             secondLabel="About 2 days"
             userField={userInfo?.deliveryMethod!}
@@ -66,7 +66,6 @@ export const CheckoutShipment = ({
       </UserShipmentForm>
 
       <Navigator btnColor="#000">
-        {" "}
         <div
           className="backstep"
           onClick={() => setCheckoutProgress("contact")}

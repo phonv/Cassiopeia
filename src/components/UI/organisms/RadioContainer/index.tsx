@@ -8,8 +8,10 @@ type RadioGroupTypes = {
   title: string;
   firstHeading: string;
   secondHeading: string;
-  firstLabel: string;
-  secondLabel: string;
+  firstValue: string;
+  secondValue: string;
+  firstLabel?: string;
+  secondLabel?: string;
   userField: string;
   updateInfoCallback: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -18,6 +20,8 @@ export const RadioContainer = ({
   title,
   firstHeading,
   secondHeading,
+  firstValue,
+  secondValue,
   firstLabel,
   secondLabel,
   userField,
@@ -32,7 +36,7 @@ export const RadioContainer = ({
       <Label
         className="label1"
         defaultValue={userField}
-        value="pickup"
+        value={firstValue}
         control={
           <Radio icon={<UncheckedRadio />} checkedIcon={<CheckedRadio />} />
         }
@@ -46,7 +50,7 @@ export const RadioContainer = ({
       <Label
         className="label2"
         defaultValue={userField}
-        value="courier"
+        value={secondValue}
         control={
           <Radio icon={<UncheckedRadio />} checkedIcon={<CheckedRadio />} />
         }
@@ -67,10 +71,12 @@ const Label = styled(FormControlLabel)<{ defaultValue?: string }>`
   margin: 10px 0;
   border-radius: 5px;
   &.label1 {
-    border-color: ${({ defaultValue }) => defaultValue === "pickup" && "#000"};
+    border-color: ${({ defaultValue }) =>
+      (defaultValue === "pickup" || defaultValue === "offline") && "#000"};
   }
   &.label2 {
-    border-color: ${({ defaultValue }) => defaultValue === "courier" && "#000"};
+    border-color: ${({ defaultValue }) =>
+      (defaultValue === "courier" || defaultValue === "online") && "#000"};
   }
   .label {
     margin-left: 15px;

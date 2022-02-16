@@ -11,6 +11,7 @@ const UserInfoProvider: React.FC<{ children: React.ReactNode }> = ({
     pickAddress:
       "120 Nguyen Thai Hoc Street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi",
     shipProvince: "Ha Noi",
+    paymentMethod: "online",
   });
 
   const userContext: UserContextProps = useMemo(

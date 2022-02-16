@@ -13,16 +13,25 @@ const availableAddress = [
 export const PickupNote = () => {
   const userContext = useContext(UserInfoContext);
   if (!userContext) return <></>;
-  const { userInfo, setUserInfo } = userContext;
+  const { setUserInfo } = userContext;
+
+  const handleSaveReceiptAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo((prev) => ({ ...prev, pickAddress: e.target.value }));
+  };
 
   return (
     <Container>
       <div className="store-picker">
         <div className="checkout-form-title">Available stores</div>
         <div className="pickup-radio-wrapper">
-          {availableAddress.map((item) => (
-            <div className="pickup-radio-options">
-              <input type="radio" name="pick-address" value={item.address} />
+          {availableAddress.map((item, i) => (
+            <div key={i} className="pickup-radio-options">
+              <input
+                onChange={(e) => handleSaveReceiptAddress(e)}
+                type="radio"
+                name="pick-address"
+                value={item.address}
+              />
               <div className="pickup-radio-options-content">{item.address}</div>
             </div>
           ))}

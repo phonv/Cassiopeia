@@ -35,7 +35,7 @@ export const CourierNote = () => {
           className="checkout-form-input"
           placeholder="Address..."
           onChange={(e) =>
-            setUserInfo((prev) => ({ ...prev, shipProvince: e.target.value }))
+            setUserInfo((prev) => ({ ...prev, shipAddress: e.target.value }))
           }
         />
       </div>
